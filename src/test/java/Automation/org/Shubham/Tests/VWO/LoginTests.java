@@ -2,6 +2,7 @@ package Automation.org.Shubham.Tests.VWO;
 
 import Automation.org.Shubham.Base.CommonToAllTests;
 import Automation.org.Shubham.Driver.DriverManager;
+import Automation.org.Shubham.Pages.POM.VWO.DashBoardPage;
 import Automation.org.Shubham.Pages.POM.VWO.LoginPage;
 import Automation.org.Shubham.Utils.PropertiesReader;
 import io.qameta.allure.Description;
@@ -13,7 +14,7 @@ import static Automation.org.Shubham.Driver.DriverManager.getDriver;
 public class LoginTests extends CommonToAllTests {
 
     @Description("Verify login with invalid credentials: invalid username and invalid password")
-    @Test
+    @Test(priority = 1)
     public void loginWithInValidCredentials() {
 
         // Driver initialisation
@@ -26,6 +27,22 @@ public class LoginTests extends CommonToAllTests {
 
         // Assertions
         Assert.assertEquals(error_message, PropertiesReader.readKey("error_message"));
+    }
+
+    @Description("Verify login with valid credentials: Valid username and password")
+    @Test(priority = 2)
+    public void loginWithValidCredentials(){
+
+        DriverManager.init();
+
+        LoginPage loginPage=new LoginPage(getDriver());
+        loginPage.loginToVWOLoginValidCreds(PropertiesReader.readKey("username"),PropertiesReader.readKey("password"));
+
+        DashBoardPage dashBoardPage=new DashBoardPage(getDriver());
+        String username=dashBoardPage.loggedInUserName();
+
+        Assert.assertEquals(username,PropertiesReader.readKey("expected_username"));
+
     }
 
 

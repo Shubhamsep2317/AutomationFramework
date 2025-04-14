@@ -24,15 +24,14 @@ public class DriverManager {
     // When we want to start the browser
     public static void init() {
         // browser - ? chrome, firefox, edge
-        String browser = PropertiesReader.readKey("browserChrome");
+        String browser = PropertiesReader.readKey("browserEdge");
         browser = browser.toLowerCase();
 
         switch (browser) {
             case "edge":
                 EdgeOptions edgeOptions = new EdgeOptions();
                 edgeOptions.addArguments("--start-maximized");
-                edgeOptions.addArguments("--guest");
-                driver = new EdgeDriver(edgeOptions);
+                driver = new EdgeDriver();
                 break;
             case "chrome":
                 ChromeOptions chromeOptions = new ChromeOptions();

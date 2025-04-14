@@ -40,6 +40,5 @@ public class LoginPage extends CommonToAllPages {
         enterInput(username,user);
         enterInput(password,pwd);
         clickElement(signButton);
-
     }
 }
