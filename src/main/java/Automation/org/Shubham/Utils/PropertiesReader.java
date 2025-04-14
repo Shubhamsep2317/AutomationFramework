@@ -10,7 +10,7 @@ public class PropertiesReader {
         Properties p=null;
 
         try{
-            FileInputStream file= new FileInputStream(System.getProperty("user.dir")+"src/main/Resources/data.properties");
+            FileInputStream file= new FileInputStream(System.getProperty("user.dir")+"/"+"src/main/Resources/data.properties");
             p= new Properties();
             p.load(file);
         } catch (Exception e) {
