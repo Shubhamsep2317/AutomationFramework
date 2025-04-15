@@ -17,10 +17,6 @@ public class LoginTests extends CommonToAllTests {
     @Test(priority = 1)
     public void loginWithInValidCredentials() {
 
-        // Driver initialisation
-        DriverManager.init();
-
-
         //Calling Login Page from Pages--->>> POM
         LoginPage loginPage = new LoginPage(getDriver());
         String error_message = loginPage.loginToVWOLoginInvalidCreds(PropertiesReader.readKey("invalid_username"), PropertiesReader.readKey("invalid_password"));
@@ -32,8 +28,6 @@ public class LoginTests extends CommonToAllTests {
     @Description("Verify login with valid credentials: Valid username and password")
     @Test(priority = 2)
     public void loginWithValidCredentials(){
-
-        DriverManager.init();
 
         LoginPage loginPage=new LoginPage(getDriver());
         loginPage.loginToVWOLoginValidCreds(PropertiesReader.readKey("username"),PropertiesReader.readKey("password"));

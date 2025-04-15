@@ -21,10 +21,6 @@ public class LoginMultipleUsers extends CommonToAllTests {
     @Test(dataProvider = "getData")
     public void verifyLoginWithValidInvalidCredentials(String username, String password) {
 
-        DriverManager.init();
-
-        getDriver().navigate().to(PropertiesReader.readKey("url"));
-
         LoginPage loginPage = new LoginPage(getDriver());
         String error_message = loginPage.loginToVWOLoginInvalidCreds(username, password);
 
