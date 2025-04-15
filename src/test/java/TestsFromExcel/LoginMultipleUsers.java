@@ -1,8 +1,8 @@
 package TestsFromExcel;
 
 import Automation.org.Shubham.Base.CommonToAllTests;
-import Automation.org.Shubham.Driver.DriverManager;
-import Automation.org.Shubham.Pages.POM.VWO.DashBoardPage;
+import Automation.org.Shubham.Listeners.RetryAnalyser;
+import Automation.org.Shubham.Listeners.ScreenshotListener;
 import Automation.org.Shubham.Pages.POM.VWO.LoginPage;
 import Automation.org.Shubham.Utils.PropertiesReader;
 import UtilExcel.UtilExcel;
@@ -10,10 +10,14 @@ import io.qameta.allure.Description;
 import io.qameta.allure.Owner;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import static Automation.org.Shubham.Driver.DriverManager.getDriver;
 
+
+@Listeners(ScreenshotListener.class)
+@Test(retryAnalyzer = RetryAnalyser.class)
 public class LoginMultipleUsers extends CommonToAllTests {
 
     @Owner("Shubham")
