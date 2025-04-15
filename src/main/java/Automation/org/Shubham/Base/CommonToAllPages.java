@@ -12,17 +12,18 @@ public class CommonToAllPages {
         // Open File, Open Data Base Connection You can write code here
     }
 
-    public void openVWOUrl(){
+    public void openVWOUrl() {
         getDriver().get(PropertiesReader.readKey("url"));
     }
-    public void openOrangeHRMUrl(){
+
+    public void openOrangeHRMUrl() {
         getDriver().get(PropertiesReader.readKey("ohr_url"));
     }
-
 
     public void clickElement(By by) {
         getDriver().findElement(by).click();
     }
+
     public void clickElement(WebElement by) {
         by.click();
     }
@@ -35,11 +36,11 @@ public class CommonToAllPages {
         by.sendKeys(key);
     }
 
-    public String getText(By by){
+    public String getText(By by) {
         return getDriver().findElement(by).getText();
     }
 
-    public String getText(WebElement by){
+    public String getText(WebElement by) {
         return by.getText();
     }
 

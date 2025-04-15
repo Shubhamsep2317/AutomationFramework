@@ -15,14 +15,12 @@ import org.testng.annotations.Test;
 
 import static Automation.org.Shubham.Driver.DriverManager.getDriver;
 
-
 @Listeners(ScreenshotListener.class)
-@Test(retryAnalyzer = RetryAnalyser.class)
 public class LoginMultipleUsers extends CommonToAllTests {
 
     @Owner("Shubham")
     @Description("Verify login via multiple sets of username and password")
-    @Test(dataProvider = "getData")
+    @Test(dataProvider = "getData",retryAnalyzer = RetryAnalyser.class)
     public void verifyLoginWithValidInvalidCredentials(String username, String password) {
 
         LoginPage loginPage = new LoginPage(getDriver());
