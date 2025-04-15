@@ -24,7 +24,7 @@ public class DriverManager {
     // When we want to start the browser
     public static void init() {
         // browser - ? chrome, firefox, edge
-        String browser = PropertiesReader.readKey("browserEdge");
+        String browser = PropertiesReader.readKey("browserChrome");
         browser = browser.toLowerCase();
 
         switch (browser) {
